@@ -1,0 +1,86 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2578
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww23040\viewh14080\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\
+ <?php\
+  include("connection.php");\
+ \
+\
+    $name=$_POST['name'];\
+    $email=$_POST[`email`];\
+    $phone=$_POST[`phone`];\
+    $subject=$_POST[`subject`];\
+    $message=$_post[`message`];\
+\
+    $sql ="INSERT INTO student(`name`,  `email` ,`Phone`,`subject`,`message`) VALUES(\'91$name\'92,\'92$email\'92,\'92$phone\'92,\'92$subject\'92,\'92$message\'92)\'94;\
+    if ($conn->query($sql) === TRUE)\
+    \{\
+    echo "feedback successfully submitted";\
+    echo '<script type="text/javascript"> alert("data submitted");</script>';\
+\
+    header("location:post.php");\
+    \
+    \}\
+\
+    else\
+    \{\
+    echo "Error: " . $sql . "<br>" . $conn->error;\
+    \}\
+    $conn->close();\
+\
+    \
+  \
+  ?>\
+  \
+\
+\
+\
+___________________________________________________________________________________________________________________________________\
+\
+post.php\
+\
+\
+\
+<!DOCTYPE html>\
+<html lang="en">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <title>Document</title>\
+    <link rel="stylesheet" href="form.css">\
+</head>\
+<body>\
+ <form action="action.php" method="POST" id="form1">\
+\
+   \
+\
+  <label for=\'93fname">FullName:</label><br>\
+  <input type="text"id="fname" Name="fname" value=""><br>\
+  <label for="phone">Mobile No:</label><br>\
+  <input type="text" id="phone" name="phone" value=""><br>\
+ <label for="date">Date:</label><br>\
+  <input type="date"Date="Date" name="date" value=""><br> \
+ \
+  <button type="submit" form="form1" value="Submit">Submit</button>   \
+  <!--  <label for="start">Start date:</label>\
+\
+ <input type="date" id="start" name="trip-start"\
+       value="2018-07-22"\
+       min="2018-01-01" max="2018-12-31"> -->\
+\
+\
+ </form>\
+\
+ \
+\
+\
+</body>\
+</html>}
